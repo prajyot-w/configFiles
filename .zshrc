@@ -108,4 +108,5 @@ alias livehost="~/.scripts/livehosts.sh"
 alias lastlog="git log | head -n 7"
 
 ## TEMPORARY ALIASES
-alias modeln="cd /home/prajyot/workspace/modeln-bpi"
+#alias modeln="cd /home/prajyot/workspace/modeln-bpi"
+######
