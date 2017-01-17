@@ -106,7 +106,11 @@ alias histg="history | grep"
 alias cdw="cd ~/workspace"
 alias livehost="~/.scripts/livehosts.sh"
 alias lastlog="git log | head -n 7"
+alias sta="git status -s"
+alias amen="git commit --amend"
 
 ## TEMPORARY ALIASES
-#alias modeln="cd /home/prajyot/workspace/modeln-bpi"
-######
+alias modeln="cd /home/prajyot/workspace/modeln-bpi"
+
+## Environment Variables 
+export CLASSPATH=/home/prajyot/.java/lib/:. 
