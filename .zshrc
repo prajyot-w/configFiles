@@ -117,12 +117,13 @@ export CLASSPATH=/home/prajyot/.java/lib/:.
 
 ## Functions.
 function commitConfig {
-	mv ~/.zshrc ~/configFiles/;
-	mv ~/.bashrc ~/configFiles/;
-	mv ~/.vimrc ~/configFiles/;
+	cp ~/.zshrc ~/configFiles/;
+	cp ~/.bashrc ~/configFiles/;
+	cp ~/.vimrc ~/configFiles/;
 	cd ~/configFiles/;
 	git add .;
 	git commit --amend --no-edit;
+	git pull origin master;
 	git push origin master;
 	cd -;
 }
