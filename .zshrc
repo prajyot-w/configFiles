@@ -109,8 +109,9 @@ alias lastlog="git log | head -n 7"
 alias sta="git status -s"
 alias amen="git commit --amend"
 
-## TEMPORARY ALIASES
+## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
+alias virtualbox="sudo virtualbox"
 
 ## Environment Variables 
 export CLASSPATH=/home/prajyot/.java/lib/:. 
