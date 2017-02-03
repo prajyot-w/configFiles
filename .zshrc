@@ -123,7 +123,7 @@ function commitConfig {
 	cp ~/.vimrc ~/configFiles/;
 	cd ~/configFiles/;
 	git add .;
-	git commit --amend --no-edit;
+	git commit; 
 	git pull origin master;
 	git push origin master;
 	cd -;
