@@ -128,3 +128,7 @@ function commitConfig {
 	git push origin master;
 	cd -;
 }
+## Exports 
+## FOR ANDROID 
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
