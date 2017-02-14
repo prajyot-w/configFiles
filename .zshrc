@@ -112,6 +112,7 @@ alias amen="git commit --amend"
 ## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
 alias virtualbox="sudo virtualbox"
+alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;"
 
 ## Environment Variables 
 export CLASSPATH=/home/prajyot/.java/lib/:. 
@@ -128,6 +129,7 @@ function commitConfig {
 	git push origin master;
 	cd -;
 }
+
 ## Exports 
 ## FOR ANDROID 
 export ANDROID_HOME=$HOME/Android/Sdk
