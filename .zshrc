@@ -108,11 +108,14 @@ alias livehost="~/.scripts/livehosts.sh"
 alias lastlog="git log | head -n 7"
 alias sta="git status -s"
 alias amen="git commit --amend"
+alias xmind="$HOME/.application/XMind/XMind_amd64/XMind &"
 
 ## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
+alias mmapps="cd /home/prajyot/workspace/mmapps"
 alias virtualbox="sudo virtualbox"
 alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;"
+alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
 
 ## Environment Variables 
 export CLASSPATH=/home/prajyot/.java/lib/:. 
@@ -133,4 +136,12 @@ function commitConfig {
 ## Exports 
 ## FOR ANDROID 
 export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+## FOR XMind
+export SWT_GTK3=0
+
+## GREETING SCREEN
+alias blinkenlights="telnet towel.blinkenlights.nl"
+#sl
+toilet -f mono9 -F metal $(hostname)
+#fortune | cowsay
