@@ -114,7 +114,7 @@ alias xmind="$HOME/.application/XMind/XMind_amd64/XMind &"
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
 alias mmapps="cd /home/prajyot/workspace/mmapps"
 alias virtualbox="sudo virtualbox"
-alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;"
+alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;" #git_1.9.1-1ubuntu0.4_amd64.deb
 alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
 
 ## Environment Variables 
@@ -143,5 +143,16 @@ export SWT_GTK3=0
 ## GREETING SCREEN
 alias blinkenlights="telnet towel.blinkenlights.nl"
 #sl
-toilet -f mono9 -F metal $(hostname)
+#toilet -f mono9 -F metal $(hostname)
 #fortune | cowsay
+
+recompilegit () {
+	cd ~/git-openssl;
+	sudo rm -rf *;
+	apt-get source git;
+	dpkg-source -x git*.dsc;
+	cd git-*;
+	sed -i 's/gnutls/openssl/g' debian/control;
+	sed -i '10d' debian/rules;
+	sudo dpkg-buildpackage -rfakeroot -b;
+}
