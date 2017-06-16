@@ -155,4 +155,5 @@ recompilegit () {
 	sed -i 's/gnutls/openssl/g' debian/control;
 	sed -i '10d' debian/rules;
 	sudo dpkg-buildpackage -rfakeroot -b;
+	cd $HOME;
 }
