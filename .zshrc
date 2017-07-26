@@ -106,8 +106,6 @@ alias histg="history | grep"
 alias workspace="cd ~/workspace"
 alias livehost="~/.scripts/livehosts.sh"
 alias lastlog="git log | head -n 7"
-alias sta="git status -s"
-alias amen="git commit --amend"
 alias xmind="$HOME/.application/XMind/XMind_amd64/XMind &"
 
 ## WORK ALIASES
@@ -116,6 +114,7 @@ alias mmapps="cd /home/prajyot/workspace/mmapps"
 alias virtualbox="sudo virtualbox"
 alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;" #git_1.9.1-1ubuntu0.4_amd64.deb
 alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
+alias datagrip="/home/prajyot/.application/DataGrip-2017.1.5/bin/datagrip.sh"
 
 ## Environment Variables 
 export CLASSPATH=/home/prajyot/.java/lib/:. 
@@ -139,6 +138,7 @@ export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ## FOR XMind
 export SWT_GTK3=0
+export GIT_EDITOR=vim
 
 ## GREETING SCREEN
 alias blinkenlights="telnet towel.blinkenlights.nl"
