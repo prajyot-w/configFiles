@@ -117,6 +117,7 @@ alias virtualbox="sudo virtualbox"
 alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;" #git_1.9.1-1ubuntu0.4_amd64.deb
 alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
 alias datagrip="/home/prajyot/.application/DataGrip-2017.1.5/bin/datagrip.sh"
+alias mvnbuild="mvn clean package -Dmaven.test.skip=true"
 
 ## Environment Variables 
 export CLASSPATH=/home/prajyot/.java/lib/:. 
@@ -148,14 +149,14 @@ alias blinkenlights="telnet towel.blinkenlights.nl"
 #toilet -f mono9 -F metal $(hostname)
 #fortune | cowsay
 
-recompilegit () {
+function recompilegit () {
 	cd ~/git-openssl;
 	sudo rm -rf *;
-	apt-get source git;
-	dpkg-source -x git*.dsc;
+	sudo apt-get source git;
+	sudo dpkg-source -x git*.dsc;
 	cd git-*;
-	sed -i 's/gnutls/openssl/g' debian/control;
-	sed -i '10d' debian/rules;
-	sudo dpkg-buildpackage -rfakeroot -b;
+	sudo sed -i 's/gnutls/openssl/g' debian/control;
+	sudo sed -i '10d' debian/rules;
+	sudo dpkg-buildpackage -uc -us -rfakeroot -b;
 	cd $HOME;
 }
