@@ -5,4 +5,5 @@
 !.bashrc
 
 # Ignore These
-*.orig
+**/*.orig
+**/*.swp
