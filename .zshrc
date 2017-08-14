@@ -107,7 +107,8 @@ alias wget="wget -c"
 alias histg="history | grep"
 alias workspace="cd ~/workspace"
 alias livehost="~/.scripts/livehosts.sh"
-alias lastlog="git log | head -n 7"
+alias mycommits="git log --author=prajyot --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
+alias personcommits="git log --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias xmind="$HOME/.application/XMind/XMind_amd64/XMind &"
 
 ## WORK ALIASES

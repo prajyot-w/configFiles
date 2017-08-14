@@ -30,7 +30,7 @@ sudo apt-get install -y vim virtualbox virtualbox-ext-pack virtualbox-guest-addi
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" ;
 
 
-# Setup for MODELN project in TECHBULLS PVT. LTD.
+# Setup for git openssl
 
 sudo apt-get update;
 sudo apt-get upgrade -y;
