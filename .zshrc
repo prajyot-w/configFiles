@@ -110,6 +110,7 @@ alias livehost="~/.scripts/livehosts.sh"
 alias mycommits="git log --author=prajyot --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias personcommits="git log --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias xmind="$HOME/.application/XMind/XMind_amd64/XMind &"
+alias nbon="bash $HOME/configFiles/scripts/netbios-on-network.sh"
 
 ## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
@@ -117,7 +118,6 @@ alias mmapps="cd /home/prajyot/workspace/mmapps"
 alias virtualbox="sudo virtualbox"
 alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;" #git_1.9.1-1ubuntu0.4_amd64.deb
 alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
-alias datagrip="/home/prajyot/.application/DataGrip-2017.1.5/bin/datagrip.sh"
 alias mvnbuild="mvn clean package -Dmaven.test.skip=true"
 
 ## Environment Variables 
