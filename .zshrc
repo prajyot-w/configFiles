@@ -110,7 +110,7 @@ alias livehost="~/.scripts/livehosts.sh"
 alias mycommits="git log --author=prajyot --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias personcommits="git log --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias xmind="$HOME/.application/XMind/XMind_amd64/XMind &"
-alias nbon="bash $HOME/configFiles/scripts/netbios-on-network.sh"
+alias nbon="bash $HOME/configFiles/scripts/netbios-on-network.sh enp2s0"
 
 ## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
