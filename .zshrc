@@ -60,6 +60,7 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+eval $(thefuck --alias)
 
 # User configuration
 
@@ -117,8 +118,9 @@ alias modeln="cd /home/prajyot/workspace/modeln-bpi"
 alias mmapps="cd /home/prajyot/workspace/mmapps"
 alias virtualbox="sudo virtualbox"
 alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;" #git_1.9.1-1ubuntu0.4_amd64.deb
-alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
+#alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
 alias mvnbuild="mvn clean package -Dmaven.test.skip=true"
+alias fuck='fuck -y'
 
 ## Environment Variables 
 export CLASSPATH=/home/prajyot/.java/lib/:. 
