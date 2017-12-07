@@ -115,7 +115,7 @@ alias nbon="bash $HOME/configFiles/scripts/netbios-on-network.sh enp2s0"
 
 ## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
-alias mmapps="cd /home/prajyot/workspace/mmapps"
+alias fundae="cd /home/prajyot/workspace/fundae-project/"
 alias virtualbox="sudo virtualbox"
 alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;" #git_1.9.1-1ubuntu0.4_amd64.deb
 #alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
@@ -152,14 +152,17 @@ alias blinkenlights="telnet towel.blinkenlights.nl"
 #toilet -f mono9 -F metal $(hostname)
 #fortune | cowsay
 
-function recompilegit () {
-	cd ~/git-openssl;
-	sudo rm -rf *;
-	sudo apt-get source git;
-	sudo dpkg-source -x git*.dsc;
-	cd git-*;
-	sudo sed -i 's/gnutls/openssl/g' debian/control;
-	sudo sed -i '10d' debian/rules;
-	sudo dpkg-buildpackage -uc -us -rfakeroot -b;
-	cd $HOME;
+
+function fetchJS(){
+	if [ -d "src/main/resources/static" ];then
+		# Statements
+		cd src/main/resources/static;
+		rm -rf bower_components;
+		rm -rf node_modules;
+		bower install;
+		npm install;
+	else;
+		# Statements
+		echo "Make sure you are in a Spring-Boot Project Directory"
+	fi
 }
