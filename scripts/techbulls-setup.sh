@@ -30,28 +30,17 @@ sudo apt-get install -y vim virtualbox virtualbox-ext-pack virtualbox-guest-addi
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" ;
 
 
-# Setup for git openssl
-
-sudo apt-get update;
-sudo apt-get upgrade -y;
-sudo apt-get build-dep git;
-sudo apt-get install build-essential fakeroot dpkg-dev libcurl4-openssl-dev;
-
-mkdir $USER_HOME/git-openssl;
-cd $USER_HOME/git-openssl;
-
-sudo apt-get source git;
-sudo dpkg-source -x git*.dsc;
-cd git-*;
-sudo sed -i 's/gnutls/openssl/g' debian/control;
-sudo sed -i '10d' debian/rules;
-sudo dpkg-buildpackage -uc -us -rfakeroot -b;
-
-sudo dpkg -i $USER_HOME/git-openssl/git*amd64.deb;
-
+# Setup awscli
 sudo pip install awscli;
 
 cd $USER_HOME;
+
+# Replace .zshrc file in home folder
+rm -f $USER_HOME/.zshrc
+cp $USER_HOME/configFiles/.zshrc $USER_HOME/
+
+# Setup git user.name property for global variable.
+git config --global user.name "Prajyot Walali"
 
 
 echo "Setup Complete ... Please reboot your system.";
