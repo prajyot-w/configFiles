@@ -60,7 +60,7 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 # User configuration
 
@@ -110,17 +110,12 @@ alias workspace="cd ~/workspace"
 alias livehost="~/.scripts/livehosts.sh"
 alias mycommits="git log --author=prajyot --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias personcommits="git log --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
-alias xmind="$HOME/.application/XMind/XMind_amd64/XMind &"
 alias nbon="bash $HOME/configFiles/scripts/netbios-on-network.sh enp2s0"
+alias nbonw="bash $HOME/configFiles/scripts/netbios-on-network.sh wlp3s0"
 
 ## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
 alias fundae="cd /home/prajyot/workspace/fundae-project/"
-alias virtualbox="sudo virtualbox"
-alias fixgit="sudo dpkg -i $HOME/git-openssl/git*amd64.deb;" #git_1.9.1-1ubuntu0.4_amd64.deb
-#alias rswrkbench="bash $HOME/.application/redshiftWorkbench/sqlworkbench.sh"
-alias mvnbuild="mvn clean package -Dmaven.test.skip=true"
-alias fuck='fuck -y'
 
 ## Environment Variables 
 export CLASSPATH=/home/prajyot/.java/lib/:. 
