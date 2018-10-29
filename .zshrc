@@ -112,6 +112,7 @@ alias mycommits="git log --author=prajyot --oneline --pretty='%C(yellow)%h%Crese
 alias personcommits="git log --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias nbon="bash $HOME/configFiles/scripts/netbios-on-network.sh enp2s0"
 alias nbonw="bash $HOME/configFiles/scripts/netbios-on-network.sh wlp3s0"
+alias gdtool="git difftool"
 
 ## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
@@ -161,3 +162,41 @@ function fetchJS(){
 		echo "Make sure you are in a Spring-Boot Project Directory"
 	fi
 }
+
+
+function cleanJetBrain() {
+	INPUTDIR=$(echo $1 | sed 's/ //g');
+	CONFIGDIR=$(ls -al ~ | grep -i $INPUTDIR | awk '{print $9}');
+	if [ "$INPUTDIR" = "" -a "$CONFIGDIR" = "" ];
+	then
+		echo "Please Provide appropriate folder name."
+	else
+		echo "Cleaning"
+		CONFIGDIR=$(echo $PWD/$CONFIGDIR | sed 's/\/$//g');
+		rm -rf $CONFIGDIR/config/eval;
+		echo -ne "$(cat $CONFIGDIR/config/options/options.xml | grep -v evlsprt)" > $CONFIGDIR/config/options/options.xml;
+		CONFIGDIR=$(ls -al ~/.java/.userPrefs/jetbrains/ | grep -i datagrip | awk '{print $9}')
+		CONFIGDIR=$(echo "$PWD/.java/.userPrefs/jetbrains/$CONFIGDIR" | sed 's/\/$//g')
+		rm -rf $CONFIGDIR/*/evlsprt*;
+	fi
+}
+
+## Geoserver home directory
+export GEOSERVER_HOME=/usr/share/geoserver
+
+## Add Antlr4 classpath to classpath
+export CLASSPATH=".:/usr/local/lib/antlr/antlr-4.7.1-complete.jar:$CLASSPATH"
+
+## Alias for Antlr4
+alias antlr4='java -jar /usr/local/lib/antlr/antlr-4.7.1-complete.jar'
+alias grun='java org.antlr.v4.gui.TestRig'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+#export PATH="$PATH:$HOME/.rvm/bin"
+#source ~/.rvm/scripts/rvm
+
+# Add gecko driver to path
+export PATH="$PATH:$HOME/.applications/drivers"
+
+## Set default locale
+export LC_ALL="en_US.UTF-8"
