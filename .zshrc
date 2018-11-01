@@ -114,6 +114,9 @@ alias nbon="bash $HOME/configFiles/scripts/netbios-on-network.sh enp2s0"
 alias nbonw="bash $HOME/configFiles/scripts/netbios-on-network.sh wlp3s0"
 alias gdtool="git difftool"
 
+## TOOL ALIASES
+alias rsync="rsync --info=progress2"
+
 ## WORK ALIASES
 alias modeln="cd /home/prajyot/workspace/modeln-bpi"
 alias fundae="cd /home/prajyot/workspace/fundae-project/"
