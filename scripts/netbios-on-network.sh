@@ -1,10 +1,13 @@
-# PART 1
-# nmap -p 22 192.168.0.0/24 | sed ':a;N;$!ba;s/\n\n/;/g' | sed ':a;N;$!ba;s/\n/ /g' | sed 's/;/\n/g' | grep open | awk '{print $5}'
-# PART 2
-#(nmap --script smb-os-discovery 192.168.0.82 ;nmap --script smb-os-discovery 192.168.0.83 ; ) | grep -E 'report|NetBIOS' | sed ':a;N;$!ba;s/\n|/ /g'
+#!/usr/bin/bash
 
-#final command
-(nmap -p 22 $(ifconfig $1 | grep "inet addr" | awk '{print $2}' | sed 's/addr:/ /g')/24 | sed ':a;N;$!ba;s/\n\n/;/g' | sed ':a;N;$!ba;s/\n/ /g' | sed 's/;/\n/g' | grep open | awk '{print $5}' | while read line; do nmap --script smb-os-discovery $line; done) | grep -E 'report|NetBIOS' | sed ':a;N;$!ba;s/\n|/ /g' | grep NetBIOS | awk '{print $5" "$9}'
+## Extract NetWork Interface Subnet Mask
+IPRANGE=$(ifconfig $1 | grep inet | head -n 1 | awk '{print $2}' | sed 's/\.[0-9]*$/\.0/g')/24
 
-# Dynamic ip fetch
-# $(ifconfig enp2s0 | grep "inet addr" | awk '{print $2}' | sed 's/addr:/ /g')
+## Get All ssh enabled IP 
+nmap -p 22 --open $IPRANGE | grep 'Nmap scan report for' | awk '{print $5}' > out.txt
+
+## Get NetBIOS of all machines
+cat out.txt | while read line; do
+echo -e $line $(nmap --script smb-os-discovery $line | grep NetBIOS | awk '{print $5}') $(nmap --script nbstat.nse $line| grep NetBIOS | awk '{print $4}' )
+done
+
