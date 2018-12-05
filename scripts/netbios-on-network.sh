@@ -8,6 +8,6 @@ nmap -p 22 --open $IPRANGE | grep 'Nmap scan report for' | awk '{print $5}' > ou
 
 ## Get NetBIOS of all machines
 cat out.txt | while read line; do
-echo -e $line $(nmap --script smb-os-discovery $line | grep NetBIOS | awk '{print $5}') $(nmap --script nbstat.nse $line| grep NetBIOS | awk '{print $4}' )
+echo -e $line $(nmblookup -A $line | head -n 2 | grep ACTIVE | awk '{print $1}')
 done
 
