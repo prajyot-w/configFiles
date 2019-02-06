@@ -9,11 +9,7 @@ export EDITOR=vim
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="af-magic"
-#ZSH_THEME="arrow"
-#ZSH_THEME="awesomepanda"
-#ZSH_THEME="zhann"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -90,6 +86,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Export 256 terminal colors
+export TERM='screen-256color'
+
 ## ALIAS
 alias ll='ls -lF'
 alias la='ls -A'
@@ -107,7 +107,7 @@ alias mkdir="mkdir -pv"
 alias wget="wget -c"
 alias histg="history | grep"
 alias workspace="cd ~/workspace"
-alias livehost="~/.scripts/livehosts.sh"
+alias livehost="~/configFiles/scripts/livehosts.sh"
 alias mycommits="git log --author=prajyot --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias personcommits="git log --oneline --pretty='%C(yellow)%h%Creset %C(bold blue)<%cd>%Creset %Cred%an%Creset %s'"
 alias nbon="bash $HOME/configFiles/scripts/netbios-on-network.sh enp2s0"
@@ -117,18 +117,12 @@ alias gdtool="git difftool"
 ## TOOL ALIASES
 alias rsync="rsync --info=progress2"
 
-## WORK ALIASES
-alias modeln="cd /home/prajyot/workspace/modeln-bpi"
-alias fundae="cd /home/prajyot/workspace/fundae-project/"
-
-## Environment Variables 
-export CLASSPATH=/home/prajyot/.java/lib/:. 
-
 ## Functions.
 function commitConfig {
 	cp ~/.zshrc ~/configFiles/;
 	cp ~/.bashrc ~/configFiles/;
 	cp ~/.vimrc ~/configFiles/;
+  cp ~/.config/nvim/init.vim ~/configFiles/nvim.rc;
 	cd ~/configFiles/;
 	git add .;
 	git commit; 
@@ -137,35 +131,10 @@ function commitConfig {
 	cd -;
 }
 
-## Exports 
-## FOR ANDROID 
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-## FOR XMind
-export SWT_GTK3=0
 export GIT_EDITOR=vim
 
 ## GREETING SCREEN
 alias blinkenlights="telnet towel.blinkenlights.nl"
-#sl
-#toilet -f mono9 -F metal $(hostname)
-#fortune | cowsay
-
-
-function fetchJS(){
-	if [ -d "src/main/resources/static" ];then
-		# Statements
-		cd src/main/resources/static;
-		rm -rf bower_components;
-		rm -rf node_modules;
-		bower install;
-		npm install;
-	else;
-		# Statements
-		echo "Make sure you are in a Spring-Boot Project Directory"
-	fi
-}
-
 
 function cleanJetBrain() {
 	INPUTDIR=$(echo $1 | sed 's/ //g');
@@ -183,23 +152,6 @@ function cleanJetBrain() {
 		rm -rf $CONFIGDIR/*/evlsprt*;
 	fi
 }
-
-## Geoserver home directory
-export GEOSERVER_HOME=/usr/share/geoserver
-
-## Add Antlr4 classpath to classpath
-export CLASSPATH=".:/usr/local/lib/antlr/antlr-4.7.1-complete.jar:$CLASSPATH"
-
-## Alias for Antlr4
-alias antlr4='java -jar /usr/local/lib/antlr/antlr-4.7.1-complete.jar'
-alias grun='java org.antlr.v4.gui.TestRig'
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-#export PATH="$PATH:$HOME/.rvm/bin"
-#source ~/.rvm/scripts/rvm
-
-# Add gecko driver to path
-export PATH="$PATH:$HOME/.applications/drivers"
 
 ## Set default locale
 export LC_ALL="en_US.UTF-8"
