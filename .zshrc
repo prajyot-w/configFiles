@@ -55,11 +55,11 @@ function cleanJetBrain() {
 		echo "Please Provide appropriate folder name."
 	else
 		echo "Cleaning"
-		CONFIGDIR=$(echo $PWD/$CONFIGDIR | sed 's/\/$//g');
+		CONFIGDIR=$(echo $HOME/$CONFIGDIR | sed 's/\/$//g');
 		rm -rf $CONFIGDIR/config/eval;
 		echo -ne "$(cat $CONFIGDIR/config/options/options.xml | grep -v evlsprt)" > $CONFIGDIR/config/options/options.xml;
-		CONFIGDIR=$(ls -al ~/.java/.userPrefs/jetbrains/ | grep -i datagrip | awk '{print $9}')
-		CONFIGDIR=$(echo "$PWD/.java/.userPrefs/jetbrains/$CONFIGDIR" | sed 's/\/$//g')
+		CONFIGDIR=$(ls -al ~/.java/.userPrefs/jetbrains/ | grep -i $INPUTDIR | awk '{print $9}')
+		CONFIGDIR=$(echo "$HOME/.java/.userPrefs/jetbrains/$CONFIGDIR" | sed 's/\/$//g')
 		rm -rf $CONFIGDIR/*/evlsprt*;
 	fi
 }
