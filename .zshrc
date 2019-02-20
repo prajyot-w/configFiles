@@ -47,19 +47,33 @@ function commitConfig {
 	cd -;
 }
 
-function cleanJetBrain() {
-	INPUTDIR=$(echo $1 | sed 's/ //g');
-	CONFIGDIR=$(ls -al ~ | grep -i $INPUTDIR | awk '{print $9}');
-	if [ "$INPUTDIR" = "" -a "$CONFIGDIR" = "" ];
-	then
-		echo "Please Provide appropriate folder name."
-	else
-		echo "Cleaning"
-		CONFIGDIR=$(echo $HOME/$CONFIGDIR | sed 's/\/$//g');
-		rm -rf $CONFIGDIR/config/eval;
-		echo -ne "$(cat $CONFIGDIR/config/options/options.xml | grep -v evlsprt)" > $CONFIGDIR/config/options/options.xml;
-		CONFIGDIR=$(ls -al ~/.java/.userPrefs/jetbrains/ | grep -i $INPUTDIR | awk '{print $9}')
-		CONFIGDIR=$(echo "$HOME/.java/.userPrefs/jetbrains/$CONFIGDIR" | sed 's/\/$//g')
-		rm -rf $CONFIGDIR/*/evlsprt*;
-	fi
+function resetdatagrip() {
+        CONFIG=$HOME/$(la -al ~ | grep -i datagrip | awk '{print $9}');
+        USERPREF=$HOME/.java/.userPrefs/jetbrains/$(ls -al ~/.java/.userPrefs/jetbrains/ | grep -i datagrip | awk '{print $9}');
+        echo "REMOVING $CONFIG/config/eval";
+        rm -rf $CONFIG/config/eval;
+        echo "REMOVING lines from $CONFIG/config/options/options.xml";
+        echo -ne "$(cat $CONFIG/config/options/options.xml | grep -v evlsprt)" > $CONFIG/config/options/options.xml
+        cd $USERPREF;
+        echo "REMOVING evlsprt directorys from $USERPREF";
+        find ./ -type d | grep -i evlsprt | while read line; do rm -rf $line; done
+        cd -;
 }
+
+function resetintellij() {
+        CONFIG=$HOME/$(la -al ~ | grep -i intellij | awk '{print $9}');
+        USERPREF=$HOME/.java/.userPrefs/jetbrains/$(ls -al ~/.java/.userPrefs/jetbrains/ | grep -i idea | awk '{print $9}');
+        echo "REMOVING $CONFIG/config/eval";
+        rm -rf $CONFIG/config/eval;
+        echo "REMOVING lines from $CONFIG/config/options/options.xml";
+        echo -ne "$(cat $CONFIG/config/options/options.xml | grep -v evlsprt)" > $CONFIG/config/options/options.xml
+        cd $USERPREF;
+        echo "REMOVING evlsprt directorys from $USERPREF";
+        find ./ -type d | grep -i evlsprt | while read line; do rm -rf $line; done
+        cd -;
+}
+
+
+## WORK
+source ~/.work/awd.sh
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
