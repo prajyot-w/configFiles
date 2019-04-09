@@ -73,7 +73,3 @@ function resetintellij() {
         cd -;
 }
 
-
-## WORK
-source ~/.work/awd.sh
-JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"

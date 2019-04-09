@@ -8,6 +8,11 @@ set autoindent
 set incsearch
 set nohlsearch
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+set encoding=UTF-8
+" For this font download form this link http://jmp.sh/8egufo1
+" move to /usr/share/font dir
+" Exec command : fc-cache -vf /usr/share/font
+set guifont=Fura\ Code:h12
 
 " set default splits to below and right
 set splitbelow splitright
@@ -20,16 +25,16 @@ map <C-l> <C-w>l
 
 " Map keys for switching buffers
 map <C-n> :next!<CR>
-map <C-p> :previous!<CR>
+map <C-b> :previous!<CR>
 
 " CtrlP configs
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " Syntastic configs
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -64,9 +69,16 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-signify'
 " Syntastic -- for syntax checking
 Plug 'vim-syntastic/syntastic'
+" Icons package for vim
+" Use https://github.com/ryanoasis/nerd-fonts.git fonts
+" And set guifont option like below
+" set guifont=Fura\ Code:h12
+Plug 'ryanoasis/vim-devicons'
+" Git plugin
+Plug 'tpope/vim-fugitive'
 
 " Programming language specific 
 " plugins
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 call plug#end()
