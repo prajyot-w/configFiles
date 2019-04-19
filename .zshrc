@@ -7,6 +7,7 @@ export UPDATE_ZSH_DAYS=13
 
 ## OH-MY-ZSH configs
 ZSH_THEME="af-magic"
+# ZSH_THEME="refined"
 ENABLE_CORRECTION="true"
 HIST_STAMPS="yyyy-mm-dd"
 plugins=(git)
@@ -71,5 +72,13 @@ function resetintellij() {
         echo "REMOVING evlsprt directorys from $USERPREF";
         find ./ -type d | grep -i evlsprt | while read line; do rm -rf $line; done
         cd -;
+}
+
+function enableTouchpad () {
+	xinput set-prop $(xinput --list |grep -oP "Touchpad.*id=\K.*?(?=\s)") "Device Enabled" 1
+}
+
+function disableTouchpad () {
+	xinput set-prop $(xinput --list |grep -oP "Touchpad.*id=\K.*?(?=\s)") "Device Enabled" 0
 }
 
