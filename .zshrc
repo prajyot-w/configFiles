@@ -1,8 +1,8 @@
 ## EXPORTS
 export ZSH=$HOME/.oh-my-zsh
-export EDITOR=nvim
+export EDITOR=vim
 export LC_ALL="en_US.UTF-8"
-export GIT_EDITOR=nvim
+export GIT_EDITOR=vim
 export UPDATE_ZSH_DAYS=13
 
 ## OH-MY-ZSH configs
@@ -14,9 +14,9 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 ## ALIAS
-alias ll='ls -lF'
-alias la='ls -A'
-alias ls='ls -CF --color=auto'
+alias ll='ls -laF --group-directories-first'
+alias la='ls -A --group-directories-first'
+alias ls='ls -CF --group-directories-first --color=auto'
 alias grep='grep --color=auto'
 alias cd..="cd .."
 alias ..="cd .."
@@ -33,6 +33,14 @@ alias nbonw="bash $HOME/configFiles/scripts/netbios-on-network.sh wlp3s0"
 alias gdtool="git difftool"
 alias rsync="rsync --info=progress2"
 alias blinkenlights="telnet towel.blinkenlights.nl"
+alias mdepends="mvn dependency:tree"
+alias psa='ps -Ao user,pid,tt,fname'
+alias vboxmodprobe='sudo modprobe vboxnetflt && sudo modprobe vboxdrv'
+
+
+## Color
+alias diff="diff --color=auto"
+alias ip="ip --color=auto"
 
 ## Functions
 function commitConfig {
