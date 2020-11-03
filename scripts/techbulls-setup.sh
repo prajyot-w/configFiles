@@ -16,15 +16,12 @@ sudo apt-get update;
 sudo apt-get install -y vim;
 sudo apt-get install -y zsh;
 sudo apt-get install -y wget;
-sudo apt-get install -y aptitude atom;
+sudo apt-get install -y aptitude;
 sudo apt-get install -y gimp git gitk gnome-tweak-tool gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly;
 sudo apt-get install -y maven meld moc moc-ffmpeg-plugin mpack mpv;
-sudo apt-get install -y mysql-client mysql-server mysql-utilities mysql-workbench;
 sudo apt-get install -y nmap nodejs npm;
 sudo apt-get install -y openjdk-8-jdk;
-sudo apt-get install -y pinta postgresql-client python-pip python-webkit python-webkit-dev;
-sudo apt-get install -y terminator testdisk tomcat7 unity-tweak-tool;
-sudo apt-get install -y vim virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-dkms virtualbox-guest-utils;
+sudo apt-get install -y postgresql-client python-pip python-webkit python-webkit-dev;
 
 # Switch shell to zsh as default shell for user and oh-my-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" ;
