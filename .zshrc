@@ -36,7 +36,7 @@ alias blinkenlights="telnet towel.blinkenlights.nl"
 alias mdepends="mvn dependency:tree"
 alias psa='ps -Ao user,pid,tt,fname'
 alias vboxmodprobe='sudo modprobe vboxnetflt && sudo modprobe vboxdrv'
-
+alias jshell='/usr/lib/jvm/java-11-openjdk/bin/jshell -v'
 
 ## Color
 alias diff="diff --color=auto"
